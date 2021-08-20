@@ -4,52 +4,47 @@ import { Button, TextInput, View, Text } from 'react-native';
 export default function App() {
   return (
     <>
-      {/* Input and button */}
-      {/* <View style={{ padding: 30 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <TextInput placeholder="Course goal" style={{ borderColor: 'black', borderWidth: 1, padding: 10, width: '80%' }} />
-          <Button title="ADD" />
+      {/* Header */}
+      <View style={{ height: '10%', marginTop: '10%', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'flex-start', borderColor: 'black', borderWidth: 1 }}>
+        <View
+          style={{
+            backgroundColor: 'red',
+            width: '30%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Text>1</Text>
         </View>
-        <View>
+        <View
+          style={{
+            backgroundColor: 'blue',
+            width: '30%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Text>2</Text>
         </View>
-      </View> */}
+        <View
+          style={{
+            backgroundColor: 'green',
+            width: '30%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Text>3</Text>
+        </View>
+      </View>
 
-      {/* Playing with flexbox */}
-      <View style={{ height: '100%', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
-      <View
-        style={{
-          backgroundColor: 'red',
-          width: '30%',
-          height: '14%',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Text>1</Text>
+      {/* Body */}
+      <View style={{height: '90%', borderColor: 'black', borderWidth: 1 }}>
+          
       </View>
-      <View
-        style={{
-          backgroundColor: 'blue',
-          width: '30%',
-          height: '14%',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Text>2</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: 'green',
-          width: '30%',
-          height: '14%',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Text>3</Text>
-      </View>
-    </View>
     </>
   );
 }
