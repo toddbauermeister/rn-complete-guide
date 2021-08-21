@@ -19,16 +19,17 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  const [goal, setGoal] = useState('');
+  const [goalEntered, setGoalEntered] = useState('');
+  const [goalList, setGoalList] = useState([]);
 
   // react native will automatically pass value
   // update the local goal state
   const updateGoal = (value) => {
-    setGoal(value);
+    setGoalEntered(value);
   };
 
   const addGoalToList = () => {
-    console.log(goal);
+    setGoalList([...goalList, goalEntered]);
   };
 
   return (
@@ -43,7 +44,7 @@ export default function App() {
           <Button title="ADD" onPress={addGoalToList}/>
         </View>
         <View>
-          <Text>{goal}</Text>
+
         </View>
       </View>
     </>
