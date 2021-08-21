@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, TextInput, View, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Button, TextInput, View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   screen: {
@@ -19,18 +19,26 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
+  const [goal, setGoal] = useState('');
+
+  // react native will automatically pass value
+  const textChanged = (value) => {
+    setGoal(value);
+  }
+
   return (
     <>
       <View style={styles.screen}>
         <View style={styles.inputContainer}>
-          <TextInput placeholder="Course goal" style={styles.input} />
+          <TextInput placeholder="Course goal"
+            style={styles.input}
+            onChangeText={ textChanged } />
           <Button title="ADD" />
         </View>
         <View>
+          <Text>{goal}</Text>
         </View>
       </View>
     </>
   );
 }
-
-
