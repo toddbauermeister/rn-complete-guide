@@ -3,18 +3,28 @@ import { Button, TextInput, View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 50
+    paddingTop: 50,
+    paddingHorizontal: 20,
+    width: '100%',
+    height: '100%',
+  },
+  inputGroup: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
   },
   inputContainer: {
-    flexDirection: 'row',
+    width: '80%', 
+    height: '100%', 
     justifyContent: 'space-between',
-    alignItems: 'center',
   },
   input: {
-    borderColor: 'black',
+    borderColor: 'gray',
     borderWidth: 1,
-    padding: 10,
-    width: '80%',
+  },
+  buttonAddContainer: {
+    width: '20%', 
+    height: '100%',
   }
 });
 
@@ -41,16 +51,24 @@ export default function App() {
   return (
     <>
       <View style={styles.screen}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Course goal"
-            style={styles.input}
-            onChangeText={updateGoal}
-          />
-          <Button title="ADD" onPress={addGoalToList}/>
+        <View style={styles.inputGroup}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Course goal"
+              style={styles.input}
+              onChangeText={updateGoal}
+            />
+          </View>
+          <View style={styles.buttonAddContainer}>
+            <Button
+              title="ADD"
+              onPress={addGoalToList}
+              style={styles.buttonAdd}
+            />
+          </View>
         </View>
         <View>
-         {goalList.map(goal => <Text>{goal}</Text>)}
+          {goalList.map(goal => <Text>{goal}</Text>)}
         </View>
       </View>
     </>
