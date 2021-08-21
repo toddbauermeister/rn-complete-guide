@@ -22,18 +22,25 @@ export default function App() {
   const [goal, setGoal] = useState('');
 
   // react native will automatically pass value
-  const textChanged = (value) => {
+  // update the local goal state
+  const updateGoal = (value) => {
     setGoal(value);
-  }
+  };
+
+  const addGoalToList = () => {
+    console.log(goal);
+  };
 
   return (
     <>
       <View style={styles.screen}>
         <View style={styles.inputContainer}>
-          <TextInput placeholder="Course goal"
+          <TextInput
+            placeholder="Course goal"
             style={styles.input}
-            onChangeText={ textChanged } />
-          <Button title="ADD" />
+            onChangeText={updateGoal}
+          />
+          <Button title="ADD" onPress={addGoalToList}/>
         </View>
         <View>
           <Text>{goal}</Text>
