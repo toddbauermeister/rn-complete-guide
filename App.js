@@ -29,7 +29,13 @@ export default function App() {
   };
 
   const addGoalToList = () => {
-    setGoalList([...goalList, goalEntered]);
+    // goalList is considered prevState by react here
+    // NB we cannot guarantee that ...goalList will be the correct value due to timing issues
+    // setGoalList([...goalList, goalEntered]);
+
+    // This is a better way of doing it :)
+    // 'this is guaranteed to work, react will pass guaranteed previous state'
+    setGoalList(currentGoals => [...currentGoals, goalEntered]);
   };
 
   return (
@@ -44,7 +50,7 @@ export default function App() {
           <Button title="ADD" onPress={addGoalToList}/>
         </View>
         <View>
-
+         {goalList.map(goal => <Text>{goal}</Text>)}
         </View>
       </View>
     </>
