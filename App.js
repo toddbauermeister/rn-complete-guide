@@ -49,9 +49,13 @@ export default function App() {
   const [goalList, setGoalList] = useState([]);
 
   // react native will automatically pass value
-  // update the local goal state
+    // update the local goal state (in the input)
   const updateGoal = (value) => {
     setGoalEntered(value);
+  };
+
+  const clearGoal = (value) => {
+    setGoalEntered('')
   };
 
   const clearGoals = () => {
@@ -73,16 +77,22 @@ export default function App() {
       <View style={styles.screen}>
         <View style={styles.inputGroup}>
           <View style={styles.inputContainer}>
+            {/* Course goal  input */}
             <TextInput
               placeholder='Course goal'
               style={styles.input}
               onChangeText={updateGoal}
+              value={goalEntered} // nb this binds the value of the input to reflect the state 
             />
           </View>
           <View style={styles.buttonAddContainer}>
+            {/* ADD button */}
             <Button
               title='ADD'
-              onPress={addGoalToList}
+              onPress={() => {
+                addGoalToList();
+                clearGoal();
+              }}
               style={styles.buttonAdd}
             />
           </View>
@@ -90,6 +100,7 @@ export default function App() {
         {
           goalList.length > 0 &&
           <View style={styles.buttonClearContainer}>
+            {/* CLEAR button */}
             <Button
               title='CLEAR'
               color='red'
