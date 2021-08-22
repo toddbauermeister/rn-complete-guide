@@ -7,25 +7,45 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     width: '100%',
     height: '100%',
+    borderColor: 'red',
+    borderWidth: 1,
   },
   inputGroup: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'flex-start',
+    height: '10%',
+    // borderColor: 'green',
+    // borderWidth: 1,
   },
   inputContainer: {
-    width: '80%', 
-    height: '100%', 
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    // borderColor: 'blue',
+    // borderWidth: 1,
+    flex: 3,
+    paddingHorizontal: 10
+    // width: '80%', 
+    // height: '100%',  
+    // justifyContent: 'space-between',
   },
   input: {
     borderColor: 'gray',
     borderWidth: 1,
+    paddingHorizontal: 10,
+    // height: '50%',
   },
   buttonAddContainer: {
-    width: '20%', 
+    justifyContent: 'center',
+    flex: 1,
+    // width: '20%',
+    // height: '100%',
+    // borderColor: 'red',
+    // borderWidth: 1,
+  },
+  buttonAdd: {
     height: '100%',
-  }
+  },
+  goalList: {
+    paddingHorizontal: 10
+  },
 });
 
 export default function App() {
@@ -67,8 +87,8 @@ export default function App() {
             />
           </View>
         </View>
-        <View>
-          {goalList.map(goal => <Text>{goal}</Text>)}
+        <View style={styles.goalList}>
+          {goalList.map((goal, index) => <Text key={index}>{goal}</Text>)}
         </View>
       </View>
     </>
