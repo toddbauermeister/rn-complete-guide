@@ -54,6 +54,10 @@ export default function App() {
     setGoalEntered(value);
   };
 
+  const clearGoals = () => {
+    setGoalList([]);
+  };
+
   const addGoalToList = () => {
     // goalList is considered prevState by react here
     // NB we cannot guarantee that ...goalList will be the correct value due to timing issues
@@ -87,6 +91,7 @@ export default function App() {
           <Button 
           title='CLEAR'
           color='red'
+          onPress={clearGoals}
           />
         </View> 
         <View style={styles.goalList}>
