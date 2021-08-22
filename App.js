@@ -13,32 +13,20 @@ const styles = StyleSheet.create({
   inputGroup: {
     flexDirection: 'row',
     height: '10%',
-    // borderColor: 'green',
-    // borderWidth: 1,
   },
   inputContainer: {
     justifyContent: 'center',
-    // borderColor: 'blue',
-    // borderWidth: 1,
     flex: 3,
-    paddingHorizontal: 10
-    // width: '80%', 
-    // height: '100%',  
-    // justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
   input: {
     borderColor: 'gray',
     borderWidth: 1,
     paddingHorizontal: 10,
-    // height: '50%',
   },
   buttonAddContainer: {
     justifyContent: 'center',
     flex: 1,
-    // width: '20%',
-    // height: '100%',
-    // borderColor: 'red',
-    // borderWidth: 1,
   },
   buttonAdd: {
     height: '100%',
