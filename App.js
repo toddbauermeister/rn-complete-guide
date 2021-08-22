@@ -49,12 +49,12 @@ export default function App() {
   const [goalList, setGoalList] = useState([]);
 
   // react native will automatically pass value
-    // update the local goal state (in the input)
+  // update the local goal state (in the input)
   const updateGoal = (value) => {
     setGoalEntered(value);
   };
 
-  const clearGoal = (value) => {
+  const clearGoalEntered = (value) => {
     setGoalEntered('')
   };
 
@@ -91,7 +91,7 @@ export default function App() {
               title='ADD'
               onPress={() => {
                 addGoalToList();
-                clearGoal();
+                clearGoalEntered();
               }}
               style={styles.buttonAdd}
             />
