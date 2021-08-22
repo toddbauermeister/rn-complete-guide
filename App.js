@@ -32,7 +32,15 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   goalList: {
-    paddingHorizontal: 10
+    padding: 10
+  },
+  buttonClearContainer: {
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  buttonClear: {
+    color: 'red',
   },
 });
 
@@ -62,19 +70,25 @@ export default function App() {
         <View style={styles.inputGroup}>
           <View style={styles.inputContainer}>
             <TextInput
-              placeholder="Course goal"
+              placeholder='Course goal'
               style={styles.input}
               onChangeText={updateGoal}
             />
           </View>
           <View style={styles.buttonAddContainer}>
             <Button
-              title="ADD"
+              title='ADD'
               onPress={addGoalToList}
               style={styles.buttonAdd}
             />
           </View>
         </View>
+        <View style={styles.buttonClearContainer}>
+          <Button 
+          title='CLEAR'
+          color='red'
+          />
+        </View> 
         <View style={styles.goalList}>
           {goalList.map((goal, index) => <Text key={index}>{goal}</Text>)}
         </View>
