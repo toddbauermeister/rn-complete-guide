@@ -87,13 +87,16 @@ export default function App() {
             />
           </View>
         </View>
-        <View style={styles.buttonClearContainer}>
-          <Button 
-          title='CLEAR'
-          color='red'
-          onPress={clearGoals}
-          />
-        </View> 
+        {
+          goalList.length > 0 &&
+          <View style={styles.buttonClearContainer}>
+            <Button
+              title='CLEAR'
+              color='red'
+              onPress={clearGoals}
+            />
+          </View>
+        }
         <View style={styles.goalList}>
           {goalList.map((goal, index) => <Text key={index}>{goal}</Text>)}
         </View>
