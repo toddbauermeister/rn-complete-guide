@@ -34,6 +34,15 @@ const styles = StyleSheet.create({
   goalList: {
     padding: 10
   },
+  goalListItem: {
+    paddingTop: 10,
+    backgroundColor: '#ccc',
+    borderColor : 'black',
+    borderWidth: 1,
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 5
+  },
   buttonClearContainer: {
     padding: 10,
     flexDirection: 'row',
@@ -54,7 +63,7 @@ export default function App() {
     setGoalEntered(value);
   };
 
-  const clearGoalEntered = (value) => {
+  const clearGoalEntered = () => {
     setGoalEntered('')
   };
 
@@ -77,7 +86,7 @@ export default function App() {
       <View style={styles.screen}>
         <View style={styles.inputGroup}>
           <View style={styles.inputContainer}>
-            {/* Course goal  input */}
+            {/* Course goal input */}
             <TextInput
               placeholder='Course goal'
               style={styles.input}
@@ -109,7 +118,14 @@ export default function App() {
           </View>
         }
         <View style={styles.goalList}>
-          {goalList.map((goal, index) => <Text key={index}>{goal}</Text>)}
+          {/* Goal list */}
+          {
+            goalList.map(
+              (goal, index) => <View key={index} style={styles.goalListItem}>
+                <Text>{goal}</Text>
+              </View>
+            )
+          }
         </View>
       </View>
     </>
