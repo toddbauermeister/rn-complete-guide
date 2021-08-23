@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View, StyleSheet, Text, ScrollView } from 'react-native';
+import { Button, TextInput, View, StyleSheet, Text, FlatList } from 'react-native';
 
 const styles = StyleSheet.create({
   screen: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   goalListItem: {
     paddingTop: 10,
     backgroundColor: '#ccc',
-    borderColor : 'black',
+    borderColor: 'black',
     borderWidth: 1,
     padding: 10,
     marginTop: 10,
@@ -78,7 +78,10 @@ export default function App() {
 
     // This is a better way of doing it :)
     // 'this is guaranteed to work, react will pass guaranteed previous state'
-    setGoalList(currentGoals => [...currentGoals, goalEntered]);
+    setGoalList(currentGoals => [
+      ...currentGoals, 
+      { key: Math.random().toString(), value: goalEntered }
+    ]);
   };
 
   return (
@@ -117,18 +120,19 @@ export default function App() {
             />
           </View>
         }
-        {/* Scrollviews are ideal for a list of max 15-20ish items. 
-        The issue is that ScrollView loads all the items in advance */}
-        <ScrollView style={styles.goalList}>
-          {/* Goal list */}
-          {
-            goalList.map(
-              (goal, index) => <View key={index} style={styles.goalListItem}>
-                <Text>{goal}</Text>
+        
+        {/* Use flatlist when you have a very long list or you don't know how long your list is going to be */}
+        <FlatList
+        keyExtractor={(item, index) => item.key}
+          data={goalList}
+          renderItem={
+            itemData => (
+              <View style={styles.goalListItem}>
+                <Text>{itemData.item.value}</Text>
               </View>
             )
           }
-        </ScrollView>
+        />
       </View>
     </>
   );
