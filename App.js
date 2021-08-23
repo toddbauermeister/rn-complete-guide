@@ -117,6 +117,8 @@ export default function App() {
             />
           </View>
         }
+        {/* Scrollviews are ideal for a list of max 15-20ish items. 
+        The issue is that ScrollView loads all the items in advance */}
         <ScrollView style={styles.goalList}>
           {/* Goal list */}
           {
