@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View, StyleSheet, Text } from 'react-native';
+import { Button, TextInput, View, StyleSheet, Text, ScrollView } from 'react-native';
 
 const styles = StyleSheet.create({
   screen: {
@@ -117,7 +117,7 @@ export default function App() {
             />
           </View>
         }
-        <View style={styles.goalList}>
+        <ScrollView style={styles.goalList}>
           {/* Goal list */}
           {
             goalList.map(
@@ -126,7 +126,7 @@ export default function App() {
               </View>
             )
           }
-        </View>
+        </ScrollView>
       </View>
     </>
   );
