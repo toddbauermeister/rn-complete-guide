@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextInput, View, StyleSheet, Text, FlatList } from 'react-native';
+import GoalInput from './components/GoalInput';
+import GoalItem from './components/GoalItem';
 
 const styles = StyleSheet.create({
   screen: {
@@ -19,11 +21,6 @@ const styles = StyleSheet.create({
     flex: 3,
     paddingHorizontal: 10,
   },
-  input: {
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingHorizontal: 10,
-  },
   buttonAddContainer: {
     justifyContent: 'center',
     flex: 1,
@@ -33,15 +30,6 @@ const styles = StyleSheet.create({
   },
   goalList: {
     padding: 10
-  },
-  goalListItem: {
-    paddingTop: 10,
-    backgroundColor: '#ccc',
-    borderColor: 'black',
-    borderWidth: 1,
-    padding: 10,
-    marginTop: 10,
-    borderRadius: 5
   },
   buttonClearContainer: {
     padding: 10,
@@ -79,7 +67,7 @@ export default function App() {
     // This is a better way of doing it :)
     // 'this is guaranteed to work, react will pass guaranteed previous state'
     setGoalList(currentGoals => [
-      ...currentGoals, 
+      ...currentGoals,
       { key: Math.random().toString(), value: goalEntered }
     ]);
   };
@@ -90,11 +78,9 @@ export default function App() {
         <View style={styles.inputGroup}>
           <View style={styles.inputContainer}>
             {/* Course goal input */}
-            <TextInput
-              placeholder='Course goal'
-              style={styles.input}
-              onChangeText={updateGoal}
-              value={goalEntered} // nb this binds the value of the input to reflect the state 
+            <GoalInput
+              updateGoal={updateGoal}
+              goalEntered={goalEntered}
             />
           </View>
           <View style={styles.buttonAddContainer}>
@@ -113,23 +99,21 @@ export default function App() {
           goalList.length > 0 &&
           <View style={styles.buttonClearContainer}>
             {/* CLEAR button */}
-            <Button
+            <Button 
               title='CLEAR'
               color='red'
               onPress={clearGoals}
             />
           </View>
         }
-        
+
         {/* Use flatlist when you have a very long list or you don't know how long your list is going to be */}
         <FlatList
-        keyExtractor={(item, index) => item.key}
+          keyExtractor={(item, index) => item.key}
           data={goalList}
           renderItem={
             itemData => (
-              <View style={styles.goalListItem}>
-                <Text>{itemData.item.value}</Text>
-              </View>
+              <GoalItem goal={itemData.item.value} />
             )
           }
         />
