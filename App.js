@@ -16,13 +16,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: '10%',
   },
-  buttonAddContainer: {
-    justifyContent: 'center',
-    flex: 1,
-  },
-  buttonAdd: {
-    height: '100%',
-  },
   goalList: {
     padding: 10
   },
@@ -74,18 +67,9 @@ export default function App() {
             <GoalInput
               updateGoal={updateGoal}
               goalEntered={goalEntered}
+              addGoalToList={addGoalToList}
+              clearGoalEntered={clearGoalEntered}
             />
-          <View style={styles.buttonAddContainer}>
-            {/* ADD button */}
-            <Button
-              title='ADD'
-              onPress={() => {
-                addGoalToList();
-                clearGoalEntered();
-              }}
-              style={styles.buttonAdd}
-            />
-          </View>
         </View>
         {
           goalList.length > 0 &&
