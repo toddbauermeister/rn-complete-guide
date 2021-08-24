@@ -16,11 +16,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: '10%',
   },
-  inputContainer: {
-    justifyContent: 'center',
-    flex: 3,
-    paddingHorizontal: 10,
-  },
   buttonAddContainer: {
     justifyContent: 'center',
     flex: 1,
@@ -76,13 +71,10 @@ export default function App() {
     <>
       <View style={styles.screen}>
         <View style={styles.inputGroup}>
-          <View style={styles.inputContainer}>
-            {/* Course goal input */}
             <GoalInput
               updateGoal={updateGoal}
               goalEntered={goalEntered}
             />
-          </View>
           <View style={styles.buttonAddContainer}>
             {/* ADD button */}
             <Button
