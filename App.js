@@ -61,7 +61,11 @@ export default function App() {
   };
 
   const removeGoalFromList = goalId => {
-    
+    setGoalList(currentGoals => {
+      // we can do this because filter will return us a new array 
+      // based on currentGoald and the criteria which we pass
+      return currentGoals.filter(goal => goal.key !== goalId);
+    })
   }
 
   return (
@@ -94,8 +98,9 @@ export default function App() {
           renderItem={
             itemData => (
               <GoalItem
+                goalId={itemData.item.key}
                 goal={itemData.item.value}
-                onDelete={() => console.log('Delete!')}
+                removeGoalFromList={(removeGoalFromList)}
               />
             )
           }
