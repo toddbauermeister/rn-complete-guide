@@ -60,22 +60,26 @@ export default function App() {
     ]);
   };
 
+  const removeGoalFromList = goalId => {
+    
+  }
+
   return (
     <>
       <View style={styles.screen}>
         <View style={styles.inputGroup}>
-            <GoalInput
-              updateGoal={updateGoal}
-              goalEntered={goalEntered}
-              addGoalToList={addGoalToList}
-              clearGoalEntered={clearGoalEntered}
-            />
+          <GoalInput
+            updateGoal={updateGoal}
+            goalEntered={goalEntered}
+            addGoalToList={addGoalToList}
+            clearGoalEntered={clearGoalEntered}
+          />
         </View>
         {
           goalList.length > 0 &&
           <View style={styles.buttonClearContainer}>
             {/* CLEAR button */}
-            <Button 
+            <Button
               title='CLEAR'
               color='red'
               onPress={clearGoals}
@@ -89,7 +93,10 @@ export default function App() {
           data={goalList}
           renderItem={
             itemData => (
-              <GoalItem goal={itemData.item.value} />
+              <GoalItem
+                goal={itemData.item.value}
+                onDelete={() => console.log('Delete!')}
+              />
             )
           }
         />
