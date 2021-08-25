@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 export default function App() {
   const [goalEntered, setGoalEntered] = useState('');
   const [goalList, setGoalList] = useState([]);
+  const [showModal, setshowModal] = useState(false)
 
   // react native will automatically pass value
   // update the local goal state (in the input)
@@ -46,6 +47,10 @@ export default function App() {
   const clearGoals = () => {
     setGoalList([]);
   };
+
+  const toggleModal = () => {
+    setshowModal(!showModal);
+  }
 
   const addGoalToList = () => {
     // goalList is considered prevState by react here
@@ -71,12 +76,18 @@ export default function App() {
   return (
     <>
       <View style={styles.screen}>
+        <Button
+          title="Add New Goal"
+          onPress={toggleModal}
+        />
         <View style={styles.inputGroup}>
           <GoalInput
             updateGoal={updateGoal}
             goalEntered={goalEntered}
             addGoalToList={addGoalToList}
             clearGoalEntered={clearGoalEntered}
+            showModal={showModal}
+            toggleModal={toggleModal}
           />
         </View>
         {
